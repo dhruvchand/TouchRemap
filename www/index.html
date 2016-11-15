@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
 	<script src="js/jquery-1.8.2.min.js"></script>
 	
-	<script src="http://10.0.0.7:8080/target/target-script-min.js#anonymous"></script>
+	<script src="http://128.61.38.116:8080/target/target-script-min.js#anonymous"></script>
     <style type="text/css">
 body {
     margin:0px;
@@ -218,7 +218,7 @@ document.body.onmouseup = function() {
 	});
 	
 	$("#x-bar").on("touchmove",function(e){
-		
+		xdown = true;
 	 e.stopPropagation();	 
 	 e.preventDefault();
 	 e = e.originalEvent
@@ -292,11 +292,12 @@ document.body.onmouseup = function() {
 	});
 	
 	$("#ybar").on("touchmove",function(e){
+		ydown = true;
 	 e.stopPropagation();
 	 e.preventDefault()
 	 e = e.originalEvent
 	 	prev.y = click.y
-		console.log("ybar")
+		console.log("ybar = " + e.changedTouches[0].pageX + "," + e.changedTouches[0].pageY )
 	 click.y =  Math.abs(e.changedTouches[0].pageY -prev.y) >20? e.changedTouches[1].pageY: e.changedTouches[0].pageY
 	
 	 
